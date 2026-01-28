@@ -1,71 +1,313 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Likhitha | Portfolio</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #222;
+      --primary: #6c63ff;
+      --card: #f5f5f5;
+    }
+
+    body.dark {
+      --bg: #121212;
+      --text: #ffffff;
+      --card: #1e1e1e;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    .toggle {
+      cursor: pointer;
+      padding: 6px 12px;
+      border-radius: 20px;
+      background: var(--primary);
+      color: white;
+      font-size: 14px;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      height: 90vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      animation: fadeIn 2s;
+    }
+
+    .hero p {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      opacity: 0;
+      animation: slideUp 2s forwards;
+      animation-delay: 1s;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    @keyframes slideUp {
+      from {transform: translateY(40px); opacity: 0;}
+      to {transform: translateY(0); opacity: 1;}
+    }
+
+    /* ===== SECTION ===== */
+    section {
+      padding: 80px 40px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      color: var(--primary);
+    }
+
+    /* ===== ABOUT ===== */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about img {
+      width: 100%;
+      border-radius: 20px;
+    }
+
+    .facts li {
+      margin: 10px 0;
+    }
+
+    /* ===== SKILLS ===== */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .skill {
+      padding: 10px 20px;
+      background: var(--card);
+      border-radius: 20px;
+    }
+
+    /* ===== GALLERY ===== */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.1);
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox img {
+      max-width: 80%;
+      border-radius: 10px;
+    }
+
+    /* ===== CONTACT ===== */
+    .contact {
+      text-align: center;
+    }
+
+    .contact a {
+      display: inline-block;
+      margin: 10px;
+      color: white;
+      background: var(--primary);
+      padding: 10px 20px;
+      border-radius: 20px;
+      text-decoration: none;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: var(--card);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media(max-width: 768px) {
+      .about {
+        grid-template-columns: 1fr;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<nav id="navbar">
-    <div class="logo">Likhitha Kammari</div>
-    <ul class="nav-links">
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="hamburger">
-        <div></div>
-        <div></div>
-        <div></div>
+  <!-- HEADER -->
+  <header>
+    <h3>Likhitha</h3>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="toggle" onclick="toggleTheme()">Dark / Light</div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <h1>Hi, I'm Likhitha 👋</h1>
+      <p>Frontend Developer | UI Designer</p>
     </div>
-</nav>
+  </section>
 
-<section id="hero">
-    <h1>Hello, I’m <span>Likhitha</span></h1>
-    <p>Web Developer | AI Enthusiast | Designer</p>
-    <a href="#contact" class="btn">Coneect & Collaborate</a>
-</section>
-
-<section id="about">
+  <!-- ABOUT -->
+  <section id="about">
     <h2>About Me</h2>
-    <p>I am a computer science student with a passion for AI and web development. I love building projects that solve real-world problems.</p>
-</section>
-
-<section id="skills">
-    <h2>Skills</h2>
-    <div class="skill-container">
-        <div class="skill-card">HTML</div>
-        <div class="skill-card">CSS</div>
-        <div class="skill-card">JavaScript</div>
-        <div class="skill-card">Python</div>
-        <div class="skill-card">React</div>
+    <div class="about">
+      <img src="https://via.placeholder.com/400" alt="Profile">
+      <div>
+        <p>
+          I am a B.Tech CSE student passionate about creating clean, responsive,
+          and interactive web interfaces.
+        </p>
+        <ul class="facts">
+          <li> B.Tech CSE (2022–2026)</li>
+          <li> Frontend & UI Design</li>
+          <li> Learning modern web animations</li>
+        </ul>
+      </div>
     </div>
-</section>
+  </section>
 
-<section id="projects">
-    <h2>Projects</h2>
-    <div class="project-container">
-        
-        <!-- Project 1 -->
-        <div class="project-card">
-            <h3>Liver Disease Prediction</h3>
-            <p>A machine learning model that predicts liver cirrhosis risk using non-invasive data.</p>
-            <p><strong>Tech:</strong> HTML, CSS, Python, Flask, Scikit-Learn</p>
-            <a href="https://github.com/kammarilikhitha/Revolutionizing-Liver-Cirrhosis">View Project</a>
-        </div>
-</section>
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="skill">HTML</div>
+      <div class="skill">CSS</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">Java</div>
+      <div class="skill">Machine Learning</div>
+    </div>
+  </section>
 
-<section id="contact">
-    <h2>Contact Details</h2>
-    <p>Email: kammarilikhitha@gmail.com</p>
-    <p>Phone: +91 9398247459</p>
-</section>
+  <!-- GALLERY -->
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img src="https://picsum.photos/400/300?1" onclick="openLightbox(this)">
+      <img src="https://picsum.photos/400/300?2" onclick="openLightbox(this)">
+      <img src="https://picsum.photos/400/300?3" onclick="openLightbox(this)">
+      <img src="https://picsum.photos/400/300?4" onclick="openLightbox(this)">
+    </div>
+  </section>
 
-<script src="script.js"></script>
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <img id="lightboxImg">
+  </div>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact">
+      <a href="mailto:yourmail@gmail.com">Email</a>
+      <a href="#">GitHub</a>
+      <a href="#">LinkedIn</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Likhitha | Portfolio
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle("dark");
+    }
+
+    function openLightbox(img) {
+      document.getElementById("lightbox").style.display = "flex";
+      document.getElementById("lightboxImg").src = img.src;
+    }
+
+    function closeLightbox() {
+      document.getElementById("lightbox").style.display = "none";
+    }
+  </script>
+
 </body>
 </html>
- 
