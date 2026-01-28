@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    scroll-behavior: smooth;
+}
+nav {
+    position: fixed;
+    width: 100%;
+    background: #283149;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    z-index: 1000;
+}
+nav .logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+}
+nav ul li {
+    margin-left: 30px;
+}
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 4px;
+}
+#hero {
+    height: 100vh;
+    background: #ff6978;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+#hero h1 span {
+    color: #f5f5f5;
+}
+#hero .btn {
+    margin-top: 20px;
+    padding: 10px 25px;
+    background: #283149;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+section {
+    padding: 80px 20px;
+    text-align: center;
+}
+section h2 {
+    margin-bottom: 30px;
+    color: #283149;
+}
+.skill-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+.skill-card, .project-card {
+    background: #f5f5f5;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+.skill-card:hover, .project-card:hover {
+    transform: translateY(-10px);
+}
+.project-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+.project-card a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #ff6978;
+    text-decoration: none;
+}
+@media(max-width:768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background: #283149;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+    }
+    nav ul.active {
+        display: flex;
+    }
+    .hamburger {
+        display: flex;
+    }
+}
