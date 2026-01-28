@@ -1,6 +1,16 @@
-const hamburger = document.querySelector(".hamburger");
-const navLinks = document.querySelector(".nav-links");
 
-hamburger.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
 });
+
+document.querySelectorAll("section, .skill-card, .project-card")
+    .forEach(el => observer.observe(el));
+
+// MOBILE MENU
+function toggleMenu() {
+    document.querySelector("nav ul").classList.toggle("active");
+}
